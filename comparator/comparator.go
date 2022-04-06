@@ -58,23 +58,26 @@ func CompareJSON(firstReader io.Reader, secondReader io.Reader) (bool, error) {
 }
 
 func parseFile(r io.Reader) <-chan parsedFile {
-	var j []map[string]string
+
 	ch := make(chan parsedFile, 1)
 
-	bs, err := io.ReadAll(r)
+	go func() {
+		var j []map[string]string
+		bs, err := io.ReadAll(r)
 
-	if err != nil {
-		ch <- parsedFile{
-			err: err,
+		if err != nil {
+			ch <- parsedFile{
+				err: err,
+			}
 		}
-	}
 
-	err = json.Unmarshal(bs, &j)
+		err = json.Unmarshal(bs, &j)
 
-	ch <- parsedFile{
-		err:   err,
-		value: j,
-	}
+		ch <- parsedFile{
+			err:   err,
+			value: j,
+		}
+	}()
 
 	return ch
 }
