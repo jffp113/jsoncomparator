@@ -5,11 +5,11 @@
 - Reads both file in parallel to speed up IO
 ## Table of Contents
 
-- [Build and run Birthdays](#build-and-run-birthdays)
+- [Build and run Comparator](#build-and-run-comparator)
 - [Build docker images](#build-docker-images)
 - [Critical thinking](#critical-thinking)
 
-## Build and run Birthdays
+## Build and run Comparator
 
 Requirements:
 
