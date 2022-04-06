@@ -2,7 +2,7 @@
 
 ## Features
 - Compare arrays of json objects (wihout nested complex data types)
-- Reads both file in parallel to speed up IO
+- Reads both files in parallel to speed up IO
 ## Table of Contents
 
 - [Build and run Comparator](#build-and-run-comparator)
